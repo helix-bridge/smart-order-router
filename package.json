@@ -116,5 +116,8 @@
   },
   "oclif": {
     "commands": "./cli/commands"
+  },
+  "publishConfig": {
+    "@helix-bridge:registry": "https://npm.pkg.github.com"
   }
 }
