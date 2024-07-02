@@ -1,5 +1,5 @@
 {
-  "name": "@uniswap/smart-order-router",
+  "name": "@helix-bridge/smart-order-router",
   "version": "3.17.3",
   "description": "Uniswap Smart Order Router",
   "main": "build/main/index.js",
