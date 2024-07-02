@@ -1,8 +1,8 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { Logger } from '@ethersproject/logger';
-import { SwapRouter, Trade } from '@uniswap/router-sdk';
-import { ChainId, Currency, Token, TradeType } from '@uniswap/sdk-core';
-import { FeeAmount, MethodParameters, Pool, Route } from '@uniswap/v3-sdk';
+import { SwapRouter, Trade } from '@helix-bridge/router-sdk';
+import { ChainId, Currency, Token, TradeType } from '@helix-bridge/sdk-core';
+import { FeeAmount, MethodParameters, Pool, Route } from '@helix-bridge/v3-sdk';
 import _ from 'lodash';
 
 import { IOnChainQuoteProvider, RouteWithQuotes } from '../../providers';

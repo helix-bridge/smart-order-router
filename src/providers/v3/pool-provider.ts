@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber';
-import { ChainId, Token } from '@uniswap/sdk-core';
-import { computePoolAddress, FeeAmount, Pool } from '@uniswap/v3-sdk';
+import { ChainId, Token } from '@helix-bridge/sdk-core';
+import { computePoolAddress, FeeAmount, Pool } from '@helix-bridge/v3-sdk';
 import retry, { Options as RetryOptions } from 'async-retry';
 import _ from 'lodash';
 

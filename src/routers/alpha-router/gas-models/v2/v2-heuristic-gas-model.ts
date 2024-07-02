@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber';
-import { ChainId, Token } from '@uniswap/sdk-core';
-import { Pair } from '@uniswap/v2-sdk';
+import { ChainId, Token } from '@helix-bridge/sdk-core';
+import { Pair } from '@helix-bridge/v2-sdk';
 import _ from 'lodash';
 
 import { ProviderConfig } from '../../../../providers/provider';

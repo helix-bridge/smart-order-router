@@ -1,10 +1,10 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { BaseProvider, JsonRpcProvider } from '@ethersproject/providers';
+import { Protocol, SwapRouter, Trade, ZERO } from '@helix-bridge/router-sdk';
+import { ChainId, Currency, Fraction, Token, TradeType } from '@helix-bridge/sdk-core';
+import { Pool, Position, SqrtPriceMath, TickMath } from '@helix-bridge/v3-sdk';
 import DEFAULT_TOKEN_LIST from '@uniswap/default-token-list';
-import { Protocol, SwapRouter, Trade, ZERO } from '@uniswap/router-sdk';
-import { ChainId, Currency, Fraction, Token, TradeType } from '@uniswap/sdk-core';
 import { TokenList } from '@uniswap/token-lists';
-import { Pool, Position, SqrtPriceMath, TickMath } from '@uniswap/v3-sdk';
 import retry from 'async-retry';
 import JSBI from 'jsbi';
 import _ from 'lodash';
@@ -677,19 +677,23 @@ export class AlphaRouter
     if (v3SubgraphProvider) {
       this.v3SubgraphProvider = v3SubgraphProvider;
     } else {
-      this.v3SubgraphProvider = new V3SubgraphProviderWithFallBacks([
-        new CachingV3SubgraphProvider(
-          chainId,
-          new URISubgraphProvider(
+      let fallbacks: IV3SubgraphProvider[] = [new StaticV3SubgraphProvider(chainId, this.v3PoolProvider)];
+      if (this.chainId !== ChainId.BITLAYER_TESTNET) {
+        fallbacks = [
+          new CachingV3SubgraphProvider(
             chainId,
-            `https://cloudflare-ipfs.com/ipns/api.uniswap.org/v1/pools/v3/${chainName}.json`,
-            undefined,
-            0
+            new URISubgraphProvider(
+              chainId,
+              `https://cloudflare-ipfs.com/ipns/api.uniswap.org/v1/pools/v3/${chainName}.json`,
+              undefined,
+              0
+            ),
+            new NodeJSCache(new NodeCache({ stdTTL: 300, useClones: false }))
           ),
-          new NodeJSCache(new NodeCache({ stdTTL: 300, useClones: false }))
-        ),
-        new StaticV3SubgraphProvider(chainId, this.v3PoolProvider),
-      ]);
+          ...fallbacks
+        ]
+      }
+      this.v3SubgraphProvider = new V3SubgraphProviderWithFallBacks(fallbacks);
     }
 
     let gasPriceProviderInstance: IGasPriceProvider;

@@ -1,7 +1,7 @@
 import { Interface } from '@ethersproject/abi';
 import { BigNumber } from '@ethersproject/bignumber';
 import { parseBytes32String } from '@ethersproject/strings';
-import { ChainId, Token } from '@uniswap/sdk-core';
+import { ChainId, Token } from '@helix-bridge/sdk-core';
 import _ from 'lodash';
 
 import { IERC20Metadata__factory } from '../types/v3/factories/IERC20Metadata__factory';
@@ -538,6 +538,35 @@ export const WBTC_MOONBEAM = new Token(
   'Wrapped BTC bridged using Multichain'
 );
 
+export const USDC_BITLAYER_TESTNET = new Token(
+  ChainId.BITLAYER_TESTNET,
+  '0x209ba92b5Cc962673a30998ED7A223109D0BE5e8',
+  18,
+  'USDC',
+  'USD//C'
+);
+export const USDT_BITLAYER_TESTNET = new Token(
+  ChainId.BITLAYER_TESTNET,
+  '0xab40Fe1DaE842B209599269B8DafB0c54a743438',
+  18,
+  'USDT',
+  'Tether USD'
+);
+export const WBTC_BITLAYER_TESTNET = new Token(
+  ChainId.BITLAYER_TESTNET,
+  '0x5F8D4232367759bCe5d9488D3ade77FCFF6B9b6B',
+  18,
+  'WBTC',
+  'Wrapped BTC'
+);
+export const BRC_BITLAYER_TESTNET = new Token(
+  ChainId.BITLAYER_TESTNET,
+  '0xf4340CF5F3891A3827713b33f769b501A0b5b122',
+  18,
+  'BRC',
+  'BRC'
+);
+
 export class TokenProvider implements ITokenProvider {
   constructor(
     private chainId: ChainId,
@@ -758,6 +787,8 @@ export const USDT_ON = (chainId: ChainId): Token => {
       return USDT_ARBITRUM;
     case ChainId.BNB:
       return USDT_BNB;
+    case ChainId.BITLAYER_TESTNET:
+      return USDT_BITLAYER_TESTNET;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }
@@ -795,6 +826,8 @@ export const USDC_ON = (chainId: ChainId): Token => {
       return USDC_BASE;
     case ChainId.BASE_GOERLI:
       return USDC_BASE_GOERLI;
+    case ChainId.BITLAYER_TESTNET:
+      return USDC_BITLAYER_TESTNET;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }

@@ -1,5 +1,5 @@
-import { ChainId, Token } from '@uniswap/sdk-core';
-import { Pair } from '@uniswap/v2-sdk';
+import { ChainId, Token } from '@helix-bridge/sdk-core';
+import { Pair } from '@helix-bridge/v2-sdk';
 import _ from 'lodash';
 
 import { WRAPPED_NATIVE_CURRENCY } from '../../util/chains';
@@ -41,7 +41,13 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.BNB]: [],
   [ChainId.AVALANCHE]: [],
   [ChainId.BASE_GOERLI]: [],
-  [ChainId.BASE]: []
+  [ChainId.BASE]: [],
+  [ChainId.BITLAYER_TESTNET]: [],
+  [ChainId.ZORA]: [],
+  [ChainId.OPTIMISM_SEPOLIA]: [],
+  [ChainId.ARBITRUM_SEPOLIA]: [],
+  [ChainId.ZORA_SEPOLIA]: [],
+  [ChainId.BLAST]: []
 };
 
 /**

@@ -1,7 +1,7 @@
 import { BigNumber } from '@ethersproject/bignumber';
-import { ChainId, Fraction, TradeType } from '@uniswap/sdk-core';
-import { Pair } from '@uniswap/v2-sdk';
-import { Pool } from '@uniswap/v3-sdk';
+import { ChainId, Fraction, TradeType } from '@helix-bridge/sdk-core';
+import { Pair } from '@helix-bridge/v2-sdk';
+import { Pool } from '@helix-bridge/v3-sdk';
 import JSBI from 'jsbi';
 import _ from 'lodash';
 import sinon from 'sinon';

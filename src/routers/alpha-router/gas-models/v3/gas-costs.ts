@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber';
-import { ChainId, Currency, Token } from '@uniswap/sdk-core';
+import { ChainId, Currency, Token } from '@helix-bridge/sdk-core';
 
 import { AAVE_MAINNET, LIDO_MAINNET } from '../../../../providers';
 import { V3Route } from '../../../router';
@@ -29,6 +29,14 @@ export const BASE_SWAP_COST = (id: ChainId): BigNumber => {
 
     case ChainId.CELO:
     case ChainId.CELO_ALFAJORES:
+      return BigNumber.from(2000);
+
+    case ChainId.ARBITRUM_SEPOLIA:
+    case ChainId.BITLAYER_TESTNET:
+    case ChainId.BLAST:
+    case ChainId.OPTIMISM_SEPOLIA:
+    case ChainId.ZORA:
+    case ChainId.ZORA_SEPOLIA:
       return BigNumber.from(2000);
 
     //TODO determine if sufficient
@@ -64,6 +72,14 @@ export const COST_PER_INIT_TICK = (id: ChainId): BigNumber => {
       return BigNumber.from(31000);
     case ChainId.MOONBEAM:
       return BigNumber.from(31000);
+
+    case ChainId.ARBITRUM_SEPOLIA:
+    case ChainId.BITLAYER_TESTNET:
+    case ChainId.BLAST:
+    case ChainId.OPTIMISM_SEPOLIA:
+    case ChainId.ZORA:
+    case ChainId.ZORA_SEPOLIA:
+      return BigNumber.from(31000);
   }
 };
 
@@ -91,6 +107,14 @@ export const COST_PER_HOP = (id: ChainId): BigNumber => {
     case ChainId.GNOSIS:
       return BigNumber.from(80000);
     case ChainId.MOONBEAM:
+      return BigNumber.from(80000);
+
+    case ChainId.ARBITRUM_SEPOLIA:
+    case ChainId.BITLAYER_TESTNET:
+    case ChainId.BLAST:
+    case ChainId.OPTIMISM_SEPOLIA:
+    case ChainId.ZORA:
+    case ChainId.ZORA_SEPOLIA:
       return BigNumber.from(80000);
   }
 };

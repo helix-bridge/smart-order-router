@@ -4,8 +4,8 @@
  * @export
  * @interface IRouteCachingProvider
  */
-import { Protocol } from '@uniswap/router-sdk';
-import { ChainId, Currency, CurrencyAmount, Token, TradeType } from '@uniswap/sdk-core';
+import { Protocol } from '@helix-bridge/router-sdk';
+import { ChainId, Currency, CurrencyAmount, Token, TradeType } from '@helix-bridge/sdk-core';
 
 import { CacheMode } from './model';
 import { CachedRoutes } from './model/cached-routes';

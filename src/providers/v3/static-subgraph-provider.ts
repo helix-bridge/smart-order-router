@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { ChainId, Token } from '@uniswap/sdk-core';
-import { FeeAmount, Pool } from '@uniswap/v3-sdk';
+import { ChainId, Token } from '@helix-bridge/sdk-core';
+import { FeeAmount, Pool } from '@helix-bridge/v3-sdk';
 import JSBI from 'jsbi';
 import _ from 'lodash';
 
@@ -10,6 +10,7 @@ import { log } from '../../util/log';
 import { ProviderConfig } from '../provider';
 import {
   ARB_ARBITRUM,
+  BRC_BITLAYER_TESTNET,
   BTC_BNB,
   BUSD_BNB,
   CELO,
@@ -35,6 +36,7 @@ import {
   USDC_ARBITRUM_GOERLI,
   USDC_AVAX,
   USDC_BASE,
+  USDC_BITLAYER_TESTNET,
   USDC_BNB,
   USDC_ETHEREUM_GNOSIS,
   USDC_GOERLI,
@@ -45,6 +47,7 @@ import {
   USDC_POLYGON,
   USDC_SEPOLIA,
   USDT_ARBITRUM,
+  USDT_BITLAYER_TESTNET,
   USDT_BNB,
   USDT_GOERLI,
   USDT_MAINNET,
@@ -154,6 +157,17 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ],
   [ChainId.BASE_GOERLI]: [WRAPPED_NATIVE_CURRENCY[ChainId.BASE_GOERLI]],
   [ChainId.BASE]: [WRAPPED_NATIVE_CURRENCY[ChainId.BASE], USDC_BASE],
+  [ChainId.BITLAYER_TESTNET]: [
+    WRAPPED_NATIVE_CURRENCY[ChainId.BITLAYER_TESTNET],
+    USDC_BITLAYER_TESTNET,
+    USDT_BITLAYER_TESTNET,
+    BRC_BITLAYER_TESTNET,
+  ],
+  [ChainId.ZORA]: [],
+  [ChainId.OPTIMISM_SEPOLIA]: [],
+  [ChainId.ARBITRUM_SEPOLIA]: [],
+  [ChainId.ZORA_SEPOLIA]: [],
+  [ChainId.BLAST]: [],
 };
 
 /**

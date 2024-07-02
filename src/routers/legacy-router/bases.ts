@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { ChainId, Token } from '@uniswap/sdk-core';
+import { ChainId, Token } from '@helix-bridge/sdk-core';
 
 import {
   BTC_BNB,
@@ -63,6 +63,12 @@ export const BASES_TO_CHECK_TRADES_AGAINST = (
     [ChainId.AVALANCHE]: [WRAPPED_NATIVE_CURRENCY[ChainId.AVALANCHE]!, USDC_AVAX, DAI_AVAX],
     [ChainId.BASE]: [WRAPPED_NATIVE_CURRENCY[ChainId.BASE]!, USDC_BASE],
     [ChainId.BASE_GOERLI]: [WRAPPED_NATIVE_CURRENCY[ChainId.BASE_GOERLI]!],
+    [ChainId.BITLAYER_TESTNET]: [WRAPPED_NATIVE_CURRENCY[ChainId.BITLAYER_TESTNET]],
+    [ChainId.ZORA]: [],
+    [ChainId.OPTIMISM_SEPOLIA]: [],
+    [ChainId.ARBITRUM_SEPOLIA]: [],
+    [ChainId.ZORA_SEPOLIA]: [],
+    [ChainId.BLAST]: [],
   };
 };
 

@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber';
-import { ChainId, Token } from '@uniswap/sdk-core';
-import { Pool } from '@uniswap/v3-sdk';
+import { ChainId, Token } from '@helix-bridge/sdk-core';
+import { Pool } from '@helix-bridge/v3-sdk';
 
 import { ProviderConfig } from '../../../providers/provider';
 import {
@@ -19,6 +19,7 @@ import {
   USDC_ARBITRUM_GOERLI,
   USDC_AVAX,
   USDC_BASE,
+  USDC_BITLAYER_TESTNET,
   USDC_BNB,
   USDC_ETHEREUM_GNOSIS,
   USDC_GOERLI,
@@ -74,6 +75,7 @@ export const usdGasTokensByChain: { [chainId in ChainId]?: Token[] } = {
   [ChainId.BNB]: [USDT_BNB, USDC_BNB, DAI_BNB],
   [ChainId.AVALANCHE]: [DAI_AVAX, USDC_AVAX],
   [ChainId.BASE]: [USDC_BASE],
+  [ChainId.BITLAYER_TESTNET]: [USDC_BITLAYER_TESTNET],
 };
 
 export type L1ToL2GasCosts = {

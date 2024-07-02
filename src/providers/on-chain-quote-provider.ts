@@ -1,8 +1,8 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { BaseProvider } from '@ethersproject/providers';
-import { encodeMixedRouteToPath, MixedRouteSDK, Protocol, } from '@uniswap/router-sdk';
-import { ChainId } from '@uniswap/sdk-core';
-import { encodeRouteToPath } from '@uniswap/v3-sdk';
+import { encodeMixedRouteToPath, MixedRouteSDK, Protocol, } from '@helix-bridge/router-sdk';
+import { ChainId } from '@helix-bridge/sdk-core';
+import { encodeRouteToPath } from '@helix-bridge/v3-sdk';
 import retry, { Options as RetryOptions } from 'async-retry';
 import _ from 'lodash';
 import stats from 'stats-lite';
@@ -359,6 +359,9 @@ export class OnChainQuoteProvider implements IOnChainQuoteProvider {
 
     let multicallChunk = this.batchParams.multicallChunk;
     let gasLimitOverride = this.batchParams.gasLimitPerCall;
+    if (this.chainId === ChainId.BITLAYER_TESTNET) {
+      gasLimitOverride = 4_000_000;
+    }
     const { baseBlockOffset, rollback } = this.blockNumberConfig;
 
     // Apply the base block offset if provided
