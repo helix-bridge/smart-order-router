@@ -43,6 +43,7 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.BASE_GOERLI]: [],
   [ChainId.BASE]: [],
   [ChainId.BITLAYER_TESTNET]: [],
+  [ChainId.BITLAYER]: [],
   [ChainId.ZORA]: [],
   [ChainId.OPTIMISM_SEPOLIA]: [],
   [ChainId.ARBITRUM_SEPOLIA]: [],

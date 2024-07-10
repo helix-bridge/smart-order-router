@@ -359,7 +359,10 @@ export class OnChainQuoteProvider implements IOnChainQuoteProvider {
 
     let multicallChunk = this.batchParams.multicallChunk;
     let gasLimitOverride = this.batchParams.gasLimitPerCall;
-    if (this.chainId === ChainId.BITLAYER_TESTNET) {
+    if (
+      this.chainId === ChainId.BITLAYER_TESTNET ||
+      this.chainId === ChainId.BITLAYER
+    ) {
       gasLimitOverride = 4_000_000;
     }
     const { baseBlockOffset, rollback } = this.blockNumberConfig;

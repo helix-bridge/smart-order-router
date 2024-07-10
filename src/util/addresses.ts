@@ -21,6 +21,7 @@ export const V3_CORE_FACTORY_ADDRESSES: AddressMap = {
   [ChainId.BASE_GOERLI]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE_GOERLI].v3CoreFactoryAddress,
   [ChainId.BASE]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE].v3CoreFactoryAddress,
   [ChainId.BITLAYER_TESTNET]: CHAIN_TO_ADDRESSES_MAP[ChainId.BITLAYER_TESTNET].v3CoreFactoryAddress,
+  [ChainId.BITLAYER]: CHAIN_TO_ADDRESSES_MAP[ChainId.BITLAYER].v3CoreFactoryAddress,
   // TODO: Gnosis + Moonbeam contracts to be deployed
 };
 
@@ -36,6 +37,7 @@ export const QUOTER_V2_ADDRESSES: AddressMap = {
   [ChainId.BASE_GOERLI]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE_GOERLI].quoterAddress,
   [ChainId.BASE]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE].quoterAddress,
   [ChainId.BITLAYER_TESTNET]: CHAIN_TO_ADDRESSES_MAP[ChainId.BITLAYER_TESTNET].quoterAddress,
+  [ChainId.BITLAYER]: CHAIN_TO_ADDRESSES_MAP[ChainId.BITLAYER].quoterAddress,
   // TODO: Gnosis + Moonbeam contracts to be deployed
 };
 
@@ -56,6 +58,7 @@ export const UNISWAP_MULTICALL_ADDRESSES: AddressMap = {
   [ChainId.BASE_GOERLI]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE_GOERLI].multicallAddress,
   [ChainId.BASE]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE].multicallAddress,
   [ChainId.BITLAYER_TESTNET]: CHAIN_TO_ADDRESSES_MAP[ChainId.BITLAYER_TESTNET].multicallAddress,
+  [ChainId.BITLAYER]: CHAIN_TO_ADDRESSES_MAP[ChainId.BITLAYER].multicallAddress,
   // TODO: Gnosis + Moonbeam contracts to be deployed
 };
 
@@ -166,13 +169,6 @@ export const WETH9: {
     'WETH',
     'Wrapped Ether'
   ),
-  [ChainId.BITLAYER_TESTNET]: new Token(
-    ChainId.BITLAYER_TESTNET,
-    '0x5F8D4232367759bCe5d9488D3ade77FCFF6B9b6B',
-    18,
-    'WBTC',
-    'Wrapped BTC'
-  ),
   [ChainId.ZORA]: new Token(
     ChainId.ZORA,
     '0x4200000000000000000000000000000000000006',
@@ -207,5 +203,19 @@ export const WETH9: {
     18,
     'WETH',
     'Wrapped Ether'
-  )
+  ),
+  [ChainId.BITLAYER_TESTNET]: new Token(
+    ChainId.BITLAYER_TESTNET,
+    '0x5F8D4232367759bCe5d9488D3ade77FCFF6B9b6B',
+    18,
+    'WBTC',
+    'Wrapped BTC'
+  ),
+  [ChainId.BITLAYER]: new Token(
+    ChainId.BITLAYER,
+    '0xfF204e2681A6fA0e2C3FaDe68a1B28fb90E4Fc5F',
+    18,
+    'WBTC',
+    'Wrapped BTC'
+  ),
 };

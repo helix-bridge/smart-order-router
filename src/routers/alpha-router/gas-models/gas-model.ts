@@ -19,6 +19,7 @@ import {
   USDC_ARBITRUM_GOERLI,
   USDC_AVAX,
   USDC_BASE,
+  USDC_BITLAYER,
   USDC_BITLAYER_TESTNET,
   USDC_BNB,
   USDC_ETHEREUM_GNOSIS,
@@ -76,6 +77,7 @@ export const usdGasTokensByChain: { [chainId in ChainId]?: Token[] } = {
   [ChainId.AVALANCHE]: [DAI_AVAX, USDC_AVAX],
   [ChainId.BASE]: [USDC_BASE],
   [ChainId.BITLAYER_TESTNET]: [USDC_BITLAYER_TESTNET],
+  [ChainId.BITLAYER]: [USDC_BITLAYER],
 };
 
 export type L1ToL2GasCosts = {
