@@ -589,6 +589,21 @@ export const WBTC_BITLAYER = new Token(
   'Wrapped BTC'
 );
 
+export const USDT_DARWINIA = new Token(
+  ChainId.DARWINIA,
+  '0x0000000000000000000000000000000000000403',
+  6,
+  'ahUSDT',
+  'Tether USD'
+);
+export const WRING_DARWINIA = new Token(
+  ChainId.DARWINIA,
+  '0xE7578598Aac020abFB918f33A20faD5B71d670b4',
+  18,
+  'WRING',
+  'Wrapped RING'
+);
+
 export class TokenProvider implements ITokenProvider {
   constructor(
     private chainId: ChainId,
@@ -813,6 +828,8 @@ export const USDT_ON = (chainId: ChainId): Token => {
       return USDT_BITLAYER_TESTNET;
     case ChainId.BITLAYER:
       return USDT_BITLAYER;
+    case ChainId.DARWINIA:
+      return USDT_DARWINIA;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }

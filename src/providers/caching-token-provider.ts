@@ -44,6 +44,7 @@ import {
   USDT_BITLAYER,
   USDT_BITLAYER_TESTNET,
   USDT_BNB,
+  USDT_DARWINIA,
   USDT_MAINNET,
   USDT_OPTIMISM,
   USDT_OPTIMISM_GOERLI,
@@ -56,6 +57,7 @@ import {
   WBTC_OPTIMISM_GOERLI,
   WMATIC_POLYGON,
   WMATIC_POLYGON_MUMBAI,
+  WRING_DARWINIA,
 } from './token-provider';
 
 // These tokens will added to the Token cache on initialization.
@@ -161,6 +163,10 @@ export const CACHE_SEED_TOKENS: {
     USDC: USDC_BITLAYER,
     USDT: USDT_BITLAYER,
     WBTC: WBTC_BITLAYER,
+  },
+  [ChainId.DARWINIA]: {
+    USDT: USDT_DARWINIA,
+    WRING: WRING_DARWINIA,
   },
   // Currently we do not have providers for Moonbeam mainnet or Gnosis testnet
 };
