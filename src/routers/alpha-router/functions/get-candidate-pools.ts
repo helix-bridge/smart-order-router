@@ -5,6 +5,7 @@ import _ from 'lodash';
 
 import { ITokenListProvider, IV2SubgraphProvider, V2SubgraphPool, } from '../../../providers';
 import {
+  BRC_BITLAYER_TESTNET,
   CELO,
   CELO_ALFAJORES,
   CEUR_CELO,
@@ -26,6 +27,8 @@ import {
   USDC_ARBITRUM_GOERLI,
   USDC_AVAX,
   USDC_BASE,
+  USDC_BITLAYER,
+  USDC_BITLAYER_TESTNET,
   USDC_BNB,
   USDC_ETHEREUM_GNOSIS,
   USDC_MAINNET,
@@ -35,11 +38,15 @@ import {
   USDC_POLYGON,
   USDC_SEPOLIA,
   USDT_ARBITRUM,
+  USDT_BITLAYER,
+  USDT_BITLAYER_TESTNET,
   USDT_BNB,
   USDT_MAINNET,
   USDT_OPTIMISM,
   USDT_OPTIMISM_GOERLI,
   WBTC_ARBITRUM,
+  WBTC_BITLAYER,
+  WBTC_BITLAYER_TESTNET,
   WBTC_GNOSIS,
   WBTC_MAINNET,
   WBTC_MOONBEAM,
@@ -171,6 +178,17 @@ const baseTokensByChain: { [chainId in ChainId]?: Token[] } = {
   ],
   [ChainId.BASE]: [
     USDC_BASE,
+  ],
+  [ChainId.BITLAYER_TESTNET]: [
+    USDC_BITLAYER_TESTNET,
+    USDT_BITLAYER_TESTNET,
+    WBTC_BITLAYER_TESTNET,
+    BRC_BITLAYER_TESTNET,
+  ],
+  [ChainId.BITLAYER]: [
+    USDC_BITLAYER,
+    USDT_BITLAYER,
+    WBTC_BITLAYER,
   ],
 };
 

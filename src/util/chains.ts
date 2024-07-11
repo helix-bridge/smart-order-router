@@ -1,4 +1,4 @@
-import { ChainId, Currency, Ether, NativeCurrency, Token } from '@helix-bridge/sdk-core';
+import { ChainId, CHAINS_SUPPORTED_BY_HELIXSWAP, Currency, Ether, NativeCurrency, Token } from '@helix-bridge/sdk-core';
 
 // WIP: Gnosis, Moonbeam
 export const SUPPORTED_CHAINS: ChainId[] = [
@@ -81,6 +81,8 @@ export const ID_TO_CHAIN_ID = (id: number): ChainId => {
       return ChainId.BASE_GOERLI;
     case 200810:
       return ChainId.BITLAYER_TESTNET;
+    case 200901:
+      return ChainId.BITLAYER;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -105,6 +107,7 @@ export enum ChainName {
   BASE = 'base-mainnet',
   BASE_GOERLI = 'base-goerli',
   BITLAYER_TESTNET = 'bitlayer-testnet',
+  BITLAYER = 'bitlayer',
 }
 
 
@@ -117,6 +120,7 @@ export enum NativeCurrencyName {
   MOONBEAM = 'GLMR',
   BNB = 'BNB',
   AVALANCHE = 'AVAX',
+  BTC = 'BTC',
 }
 
 export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
@@ -180,7 +184,9 @@ export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
     'ETH',
     'ETHER',
     '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  ]
+  ],
+  [ChainId.BITLAYER_TESTNET]: ['BTC'],
+  [ChainId.BITLAYER]: ['BTC'],
 };
 
 export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
@@ -200,6 +206,8 @@ export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
   [ChainId.BNB]: NativeCurrencyName.BNB,
   [ChainId.AVALANCHE]: NativeCurrencyName.AVALANCHE,
   [ChainId.BASE]: NativeCurrencyName.ETHER,
+  [ChainId.BITLAYER_TESTNET]: NativeCurrencyName.BTC,
+  [ChainId.BITLAYER]: NativeCurrencyName.BTC,
 };
 
 export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
@@ -240,6 +248,8 @@ export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
       return ChainName.BASE_GOERLI;
     case 200810:
       return ChainName.BITLAYER_TESTNET;
+    case 200901:
+      return ChainName.BITLAYER;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -406,13 +416,6 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
     'WETH',
     'Wrapped Ether'
   ),
-  [ChainId.BITLAYER_TESTNET]: new Token(
-    ChainId.BITLAYER_TESTNET,
-    '0x5F8D4232367759bCe5d9488D3ade77FCFF6B9b6B',
-    18,
-    'WBTC',
-    'Wrapped BTC'
-  ),
   [ChainId.ZORA]: new Token(
     ChainId.ZORA,
     '0x4200000000000000000000000000000000000006',
@@ -447,7 +450,21 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
     18,
     'WETH',
     'Wrapped Ether'
-  )
+  ),
+  [ChainId.BITLAYER_TESTNET]: new Token(
+    ChainId.BITLAYER_TESTNET,
+    '0x5F8D4232367759bCe5d9488D3ade77FCFF6B9b6B',
+    18,
+    'WBTC',
+    'Wrapped BTC'
+  ),
+  [ChainId.BITLAYER]: new Token(
+    ChainId.BITLAYER,
+    '0xfF204e2681A6fA0e2C3FaDe68a1B28fb90E4Fc5F',
+    18,
+    'WBTC',
+    'Wrapped BTC'
+  ),
 };
 
 function isMatic(
@@ -640,4 +657,8 @@ export function nativeOnChain(chainId: number): NativeCurrency {
   }
 
   return cachedNativeCurrency[chainId]!;
+}
+
+export function isChainSupportedByHelixSwap(chainId: number): boolean {
+  return CHAINS_SUPPORTED_BY_HELIXSWAP.includes(chainId);
 }

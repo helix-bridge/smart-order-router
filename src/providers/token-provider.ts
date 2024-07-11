@@ -567,6 +567,28 @@ export const BRC_BITLAYER_TESTNET = new Token(
   'BRC'
 );
 
+export const USDC_BITLAYER = new Token(
+  ChainId.BITLAYER,
+  '0x9827431e8b77e87c9894bd50b055d6be56be0030',
+  6,
+  'USDC',
+  'USD Coin'
+);
+export const USDT_BITLAYER = new Token(
+  ChainId.BITLAYER,
+  '0xfe9f969faf8ad72a83b761138bf25de87eff9dd2',
+  6,
+  'USDT',
+  'Tether USD'
+);
+export const WBTC_BITLAYER = new Token(
+  ChainId.BITLAYER,
+  '0xfF204e2681A6fA0e2C3FaDe68a1B28fb90E4Fc5F',
+  18,
+  'WBTC',
+  'Wrapped BTC'
+);
+
 export class TokenProvider implements ITokenProvider {
   constructor(
     private chainId: ChainId,
@@ -789,6 +811,8 @@ export const USDT_ON = (chainId: ChainId): Token => {
       return USDT_BNB;
     case ChainId.BITLAYER_TESTNET:
       return USDT_BITLAYER_TESTNET;
+    case ChainId.BITLAYER:
+      return USDT_BITLAYER;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }
@@ -828,6 +852,8 @@ export const USDC_ON = (chainId: ChainId): Token => {
       return USDC_BASE_GOERLI;
     case ChainId.BITLAYER_TESTNET:
       return USDC_BITLAYER_TESTNET;
+    case ChainId.BITLAYER:
+      return USDC_BITLAYER;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }

@@ -33,6 +33,7 @@ export const BASE_SWAP_COST = (id: ChainId): BigNumber => {
 
     case ChainId.ARBITRUM_SEPOLIA:
     case ChainId.BITLAYER_TESTNET:
+    case ChainId.BITLAYER:
     case ChainId.BLAST:
     case ChainId.OPTIMISM_SEPOLIA:
     case ChainId.ZORA:
@@ -75,6 +76,7 @@ export const COST_PER_INIT_TICK = (id: ChainId): BigNumber => {
 
     case ChainId.ARBITRUM_SEPOLIA:
     case ChainId.BITLAYER_TESTNET:
+    case ChainId.BITLAYER:
     case ChainId.BLAST:
     case ChainId.OPTIMISM_SEPOLIA:
     case ChainId.ZORA:
@@ -111,6 +113,7 @@ export const COST_PER_HOP = (id: ChainId): BigNumber => {
 
     case ChainId.ARBITRUM_SEPOLIA:
     case ChainId.BITLAYER_TESTNET:
+    case ChainId.BITLAYER:
     case ChainId.BLAST:
     case ChainId.OPTIMISM_SEPOLIA:
     case ChainId.ZORA:
