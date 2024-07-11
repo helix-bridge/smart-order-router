@@ -83,6 +83,8 @@ export const ID_TO_CHAIN_ID = (id: number): ChainId => {
       return ChainId.BITLAYER_TESTNET;
     case 200901:
       return ChainId.BITLAYER;
+    case 46:
+      return ChainId.DARWINIA;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -108,6 +110,7 @@ export enum ChainName {
   BASE_GOERLI = 'base-goerli',
   BITLAYER_TESTNET = 'bitlayer-testnet',
   BITLAYER = 'bitlayer',
+  DARWINIA = 'darwinia',
 }
 
 
@@ -121,6 +124,7 @@ export enum NativeCurrencyName {
   BNB = 'BNB',
   AVALANCHE = 'AVAX',
   BTC = 'BTC',
+  RING = 'RING',
 }
 
 export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
@@ -187,6 +191,7 @@ export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
   ],
   [ChainId.BITLAYER_TESTNET]: ['BTC'],
   [ChainId.BITLAYER]: ['BTC'],
+  [ChainId.DARWINIA]: ['RING'],
 };
 
 export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
@@ -208,6 +213,7 @@ export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
   [ChainId.BASE]: NativeCurrencyName.ETHER,
   [ChainId.BITLAYER_TESTNET]: NativeCurrencyName.BTC,
   [ChainId.BITLAYER]: NativeCurrencyName.BTC,
+  [ChainId.DARWINIA]: NativeCurrencyName.RING,
 };
 
 export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
@@ -250,6 +256,8 @@ export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
       return ChainName.BITLAYER_TESTNET;
     case 200901:
       return ChainName.BITLAYER;
+    case 46:
+      return ChainName.DARWINIA;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -464,6 +472,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
     18,
     'WBTC',
     'Wrapped BTC'
+  ),
+  [ChainId.DARWINIA]: new Token(
+    ChainId.DARWINIA,
+    '0xE7578598Aac020abFB918f33A20faD5B71d670b4',
+    18,
+    'WRING',
+    'Wrapped RING'
   ),
 };
 

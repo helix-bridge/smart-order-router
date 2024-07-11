@@ -32,6 +32,7 @@ import {
   USDC_SEPOLIA,
   USDT_ARBITRUM,
   USDT_BNB,
+  USDT_DARWINIA,
   USDT_GOERLI,
   USDT_MAINNET,
   USDT_OPTIMISM,
@@ -78,6 +79,7 @@ export const usdGasTokensByChain: { [chainId in ChainId]?: Token[] } = {
   [ChainId.BASE]: [USDC_BASE],
   [ChainId.BITLAYER_TESTNET]: [USDC_BITLAYER_TESTNET],
   [ChainId.BITLAYER]: [USDC_BITLAYER],
+  [ChainId.DARWINIA]: [USDT_DARWINIA],
 };
 
 export type L1ToL2GasCosts = {

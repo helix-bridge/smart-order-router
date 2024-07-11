@@ -10,7 +10,7 @@ import stats from 'stats-lite';
 import { MixedRoute, V2Route, V3Route } from '../routers/router';
 import { IMixedRouteQuoterV1__factory } from '../types/other/factories/IMixedRouteQuoterV1__factory';
 import { IQuoterV2__factory } from '../types/v3/factories/IQuoterV2__factory';
-import { ID_TO_NETWORK_NAME, metric, MetricLoggerUnit } from '../util';
+import { ID_TO_NETWORK_NAME, isChainSupportedByHelixSwap, metric, MetricLoggerUnit } from '../util';
 import { MIXED_ROUTE_QUOTER_V1_ADDRESSES, QUOTER_V2_ADDRESSES, } from '../util/addresses';
 import { CurrencyAmount } from '../util/amounts';
 import { log } from '../util/log';
@@ -359,10 +359,7 @@ export class OnChainQuoteProvider implements IOnChainQuoteProvider {
 
     let multicallChunk = this.batchParams.multicallChunk;
     let gasLimitOverride = this.batchParams.gasLimitPerCall;
-    if (
-      this.chainId === ChainId.BITLAYER_TESTNET ||
-      this.chainId === ChainId.BITLAYER
-    ) {
+    if (isChainSupportedByHelixSwap(this.chainId)) {
       gasLimitOverride = 4_000_000;
     }
     const { baseBlockOffset, rollback } = this.blockNumberConfig;

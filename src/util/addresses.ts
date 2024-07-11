@@ -22,6 +22,7 @@ export const V3_CORE_FACTORY_ADDRESSES: AddressMap = {
   [ChainId.BASE]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE].v3CoreFactoryAddress,
   [ChainId.BITLAYER_TESTNET]: CHAIN_TO_ADDRESSES_MAP[ChainId.BITLAYER_TESTNET].v3CoreFactoryAddress,
   [ChainId.BITLAYER]: CHAIN_TO_ADDRESSES_MAP[ChainId.BITLAYER].v3CoreFactoryAddress,
+  [ChainId.DARWINIA]: CHAIN_TO_ADDRESSES_MAP[ChainId.DARWINIA].v3CoreFactoryAddress,
   // TODO: Gnosis + Moonbeam contracts to be deployed
 };
 
@@ -38,6 +39,7 @@ export const QUOTER_V2_ADDRESSES: AddressMap = {
   [ChainId.BASE]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE].quoterAddress,
   [ChainId.BITLAYER_TESTNET]: CHAIN_TO_ADDRESSES_MAP[ChainId.BITLAYER_TESTNET].quoterAddress,
   [ChainId.BITLAYER]: CHAIN_TO_ADDRESSES_MAP[ChainId.BITLAYER].quoterAddress,
+  [ChainId.DARWINIA]: CHAIN_TO_ADDRESSES_MAP[ChainId.DARWINIA].quoterAddress,
   // TODO: Gnosis + Moonbeam contracts to be deployed
 };
 
@@ -59,6 +61,7 @@ export const UNISWAP_MULTICALL_ADDRESSES: AddressMap = {
   [ChainId.BASE]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE].multicallAddress,
   [ChainId.BITLAYER_TESTNET]: CHAIN_TO_ADDRESSES_MAP[ChainId.BITLAYER_TESTNET].multicallAddress,
   [ChainId.BITLAYER]: CHAIN_TO_ADDRESSES_MAP[ChainId.BITLAYER].multicallAddress,
+  [ChainId.DARWINIA]: CHAIN_TO_ADDRESSES_MAP[ChainId.DARWINIA].multicallAddress,
   // TODO: Gnosis + Moonbeam contracts to be deployed
 };
 
@@ -217,5 +220,12 @@ export const WETH9: {
     18,
     'WBTC',
     'Wrapped BTC'
+  ),
+  [ChainId.DARWINIA]: new Token(
+    ChainId.DARWINIA,
+    '0xE7578598Aac020abFB918f33A20faD5B71d670b4',
+    18,
+    'WRING',
+    'Wrapped RING'
   ),
 };

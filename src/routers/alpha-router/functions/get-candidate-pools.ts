@@ -41,6 +41,7 @@ import {
   USDT_BITLAYER,
   USDT_BITLAYER_TESTNET,
   USDT_BNB,
+  USDT_DARWINIA,
   USDT_MAINNET,
   USDT_OPTIMISM,
   USDT_OPTIMISM_GOERLI,
@@ -55,6 +56,7 @@ import {
   WGLMR_MOONBEAM,
   WMATIC_POLYGON,
   WMATIC_POLYGON_MUMBAI,
+  WRING_DARWINIA,
   WXDAI_GNOSIS,
 } from '../../../providers/token-provider';
 import { IV2PoolProvider, V2PoolAccessor, } from '../../../providers/v2/pool-provider';
@@ -189,6 +191,10 @@ const baseTokensByChain: { [chainId in ChainId]?: Token[] } = {
     USDC_BITLAYER,
     USDT_BITLAYER,
     WBTC_BITLAYER,
+  ],
+  [ChainId.DARWINIA]: [
+    USDT_DARWINIA,
+    WRING_DARWINIA,
   ],
 };
 
