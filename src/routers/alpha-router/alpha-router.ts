@@ -580,6 +580,29 @@ export class AlphaRouter
             }
           );
           break;
+        case ChainId.BITLAYER_TESTNET:
+        case ChainId.BITLAYER:
+        case ChainId.DARWINIA:
+          this.onChainQuoteProvider = new OnChainQuoteProvider(
+            chainId,
+            provider,
+            this.multicall2Provider,
+            {
+              retries: 2,
+              minTimeout: 100,
+              maxTimeout: 1000,
+            },
+            {
+              multicallChunk: 210,
+              gasLimitPerCall: 4_000_000,
+              quoteMinSuccessRate: 0.15,
+            },
+            {
+              gasLimitOverride: 2_000_000,
+              multicallChunk: 70,
+            }
+          );
+          break;
         default:
           this.onChainQuoteProvider = new OnChainQuoteProvider(
             chainId,
@@ -659,19 +682,23 @@ export class AlphaRouter
     if (v2SubgraphProvider) {
       this.v2SubgraphProvider = v2SubgraphProvider;
     } else {
-      this.v2SubgraphProvider = new V2SubgraphProviderWithFallBacks([
-        new CachingV2SubgraphProvider(
-          chainId,
-          new URISubgraphProvider(
+      let fallbacks: IV2SubgraphProvider[] = [new StaticV2SubgraphProvider(chainId)];
+      if (!isChainSupportedByHelixSwap(chainId)) {
+        fallbacks = [
+          new CachingV2SubgraphProvider(
             chainId,
-            `https://cloudflare-ipfs.com/ipns/api.uniswap.org/v1/pools/v2/${chainName}.json`,
-            undefined,
-            0
+            new URISubgraphProvider(
+              chainId,
+              `https://cloudflare-ipfs.com/ipns/api.uniswap.org/v1/pools/v2/${chainName}.json`,
+              undefined,
+              0
+            ),
+            new NodeJSCache(new NodeCache({ stdTTL: 300, useClones: false }))
           ),
-          new NodeJSCache(new NodeCache({ stdTTL: 300, useClones: false }))
-        ),
-        new StaticV2SubgraphProvider(chainId),
-      ]);
+          ...fallbacks
+        ]
+      }
+      this.v2SubgraphProvider = new V2SubgraphProviderWithFallBacks(fallbacks);
     }
 
     if (v3SubgraphProvider) {

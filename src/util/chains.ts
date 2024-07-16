@@ -23,6 +23,9 @@ export const V2_SUPPORTED = [
   ChainId.MAINNET,
   ChainId.GOERLI,
   ChainId.SEPOLIA,
+  ChainId.BITLAYER_TESTNET,
+  ChainId.BITLAYER,
+  ChainId.DARWINIA,
 ];
 
 export const HAS_L1_FEE = [
@@ -461,7 +464,7 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
   ),
   [ChainId.BITLAYER_TESTNET]: new Token(
     ChainId.BITLAYER_TESTNET,
-    '0x5F8D4232367759bCe5d9488D3ade77FCFF6B9b6B',
+    '0x3e57d6946f893314324C975AA9CEBBdF3232967E',
     18,
     'WBTC',
     'Wrapped BTC'
